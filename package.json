@@ -1,0 +1,22 @@
+{
+  "name": "still",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build && node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test scripts/*.test.mjs",
+    "validate": "node scripts/validate-artifact.mjs",
+    "format": "prettier --write src scripts package.json README.md THIRD_PARTY.md .prettierrc.json",
+    "format:check": "prettier --check src scripts package.json README.md THIRD_PARTY.md .prettierrc.json"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "prettier": "3.6.2"
+  },
+  "description": "A calm daily space for curiosity, puzzles, art, and personal goals.",
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

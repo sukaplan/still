@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F5F3EB" />
+    <meta
+      name="description"
+      content="A little curiosity, a little beauty, a little time for yourself. Your peaceful daily ritual."
+    />
+    <title>Still</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/astronomy.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" type="module"></script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="Still home">still</a>
+      <nav aria-label="Main navigation" id="nav"></nav>
+      <button class="nav-link settings-nav" id="settings-button"></button>
+    </aside>
+    <div class="app">
+      <header class="topbar">
+        <button
+          id="moon-badge"
+          class="moon-badge"
+          type="button"
+          aria-label="Moon phase and local sky"
+        ></button>
+        <div><span id="top-date"></span></div>
+      </header>
+      <main id="main" tabindex="-1"></main>
+    </div>
+    <dialog id="modal" aria-labelledby="modal-title">
+      <button class="modal-close icon-button" aria-label="Close dialog" id="close-modal"></button>
+      <div id="modal-body"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <input type="file" id="import-file" accept="application/json,.json" hidden />
+  </body>
+</html>

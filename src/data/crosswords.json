@@ -1,0 +1,1872 @@
+[
+  {
+    "rows": ["##SEA", "##TAP", "SHORE", "PAN##", "ATE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SEA",
+        "clue": "Large body of salt water"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "STONE",
+        "clue": "A small piece of solid rock."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "APE",
+        "clue": "Gorilla, for example"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "TAP",
+        "clue": "Lightly touch, or a water outlet"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "SHORE",
+        "clue": "Where water meets land."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SPA",
+        "clue": "Place for relaxation treatments"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "HAT",
+        "clue": "Head covering"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "PAN",
+        "clue": "Shallow cooking vessel"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "ATE",
+        "clue": "Had a meal"
+      }
+    ]
+  },
+  {
+    "rows": ["##SHE", "##PAW", "SHADE", "EAR##", "ASK##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SHE",
+        "clue": "Pronoun paired with her"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "SPARK",
+        "clue": "A tiny flash that can start something."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "HAD",
+        "clue": "Past tense of have"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "EWE",
+        "clue": "Female sheep"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "PAW",
+        "clue": "An animal's foot"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "SHADE",
+        "clue": "Shelter from direct sunlight."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SEA",
+        "clue": "Large body of salt water"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "HAS",
+        "clue": "She ___ a book"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "ASK",
+        "clue": "Pose a question"
+      }
+    ]
+  },
+  {
+    "rows": ["##SIR", "##TOY", "STONE", "EAR##", "ARM##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SIR",
+        "clue": "Formal way to address a man"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "STORM",
+        "clue": "Wind, rain, and a dramatic sky."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "ION",
+        "clue": "Atom with an electric charge"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "RYE",
+        "clue": "Grain used in some dark breads"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "TOY",
+        "clue": "Something a child plays with"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "STONE",
+        "clue": "A small piece of solid rock."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SEA",
+        "clue": "Large body of salt water"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "TAR",
+        "clue": "Dark sticky road material"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "ARM",
+        "clue": "Limb between shoulder and wrist"
+      }
+    ]
+  },
+  {
+    "rows": ["##PEA", "##RAP", "SHORE", "HAS##", "EYE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "PEA",
+        "clue": "Small green vegetable in a pod"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "PROSE",
+        "clue": "Writing that is not verse."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "APE",
+        "clue": "Gorilla, for example"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "RAP",
+        "clue": "Knock sharply"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "SHORE",
+        "clue": "Where water meets land."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SHE",
+        "clue": "Pronoun paired with her"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "HAY",
+        "clue": "Dried grass for animal feed"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "HAS",
+        "clue": "She ___ a book"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "EYE",
+        "clue": "Organ used for seeing"
+      }
+    ]
+  },
+  {
+    "rows": ["##SET", "##TAR", "STORY", "ION##", "RYE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SET",
+        "clue": "Put in a particular position"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "STONE",
+        "clue": "A small piece of solid rock."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "TRY",
+        "clue": "Make an attempt"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "TAR",
+        "clue": "Dark sticky road material"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "STORY",
+        "clue": "A tale with a beginning and an end."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SIR",
+        "clue": "Formal way to address a man"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "TOY",
+        "clue": "Something a child plays with"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "ION",
+        "clue": "Atom with an electric charge"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "RYE",
+        "clue": "Grain used in some dark breads"
+      }
+    ]
+  },
+  {
+    "rows": ["##SIR", "##TOY", "STONE", "EAR##", "TRY##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SIR",
+        "clue": "Formal way to address a man"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "STORY",
+        "clue": "A tale with a beginning and an end."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "ION",
+        "clue": "Atom with an electric charge"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "RYE",
+        "clue": "Grain used in some dark breads"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "TOY",
+        "clue": "Something a child plays with"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "STONE",
+        "clue": "A small piece of solid rock."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SET",
+        "clue": "Put in a particular position"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "TAR",
+        "clue": "Dark sticky road material"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "TRY",
+        "clue": "Make an attempt"
+      }
+    ]
+  },
+  {
+    "rows": ["##KIN", "##ONE", "PLANT", "OIL##", "PEA##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "KIN",
+        "clue": "Family members"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "KOALA",
+        "clue": "An Australian eucalyptus eater."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "INN",
+        "clue": "Small hotel"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "NET",
+        "clue": "Mesh used to catch fish"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "ONE",
+        "clue": "The first positive integer"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "PLANT",
+        "clue": "A living thing with roots and leaves."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "POP",
+        "clue": "A short sharp sound"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "LIE",
+        "clue": "An untrue statement"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "OIL",
+        "clue": "Liquid pressed from olives"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "PEA",
+        "clue": "Small green vegetable in a pod"
+      }
+    ]
+  },
+  {
+    "rows": ["##SHE", "##HAY", "PROSE", "EAR##", "APE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SHE",
+        "clue": "Pronoun paired with her"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "SHORE",
+        "clue": "Where water meets land."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "HAS",
+        "clue": "She ___ a book"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "EYE",
+        "clue": "Organ used for seeing"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "HAY",
+        "clue": "Dried grass for animal feed"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "PROSE",
+        "clue": "Writing that is not verse."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "PEA",
+        "clue": "Small green vegetable in a pod"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "RAP",
+        "clue": "Knock sharply"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "APE",
+        "clue": "Gorilla, for example"
+      }
+    ]
+  },
+  {
+    "rows": ["##SHY", "##TIE", "FROST", "OAR##", "GYM##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SHY",
+        "clue": "Nervous around new people"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "STORM",
+        "clue": "Wind, rain, and a dramatic sky."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "HIS",
+        "clue": "Belonging to that man"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "YET",
+        "clue": "Up to now"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "TIE",
+        "clue": "Neckwear, or an equal score"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "FROST",
+        "clue": "Ice crystals on a cold morning."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "FOG",
+        "clue": "Cloud close to the ground"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "RAY",
+        "clue": "A narrow beam of light"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "OAR",
+        "clue": "Tool for rowing a boat"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "GYM",
+        "clue": "Place to work out"
+      }
+    ]
+  },
+  {
+    "rows": ["##HOT", "##EWE", "WHALE", "OUR##", "NET##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "HOT",
+        "clue": "Opposite of cold"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "HEART",
+        "clue": "The organ that keeps blood moving."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "OWL",
+        "clue": "Night bird with large eyes"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "TEE",
+        "clue": "Small support for a golf ball"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "EWE",
+        "clue": "Female sheep"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "WHALE",
+        "clue": "A very large ocean mammal."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "WON",
+        "clue": "Past tense of win"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "HUE",
+        "clue": "A shade of colour"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "OUR",
+        "clue": "Belonging to us"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "NET",
+        "clue": "Mesh used to catch fish"
+      }
+    ]
+  },
+  {
+    "rows": ["##THE", "##RAW", "PAUSE", "ITS##", "GET##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "THE",
+        "clue": "Most common English definite article"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "TRUST",
+        "clue": "Belief in someone’s reliability."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "HAS",
+        "clue": "She ___ a book"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "EWE",
+        "clue": "Female sheep"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "RAW",
+        "clue": "Not cooked"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "PAUSE",
+        "clue": "A brief and welcome break."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "PIG",
+        "clue": "Farm animal that oinks"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "ATE",
+        "clue": "Had a meal"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "ITS",
+        "clue": "Belonging to it"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "GET",
+        "clue": "Obtain"
+      }
+    ]
+  },
+  {
+    "rows": ["##SEA", "##TAR", "STORM", "ION##", "RYE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SEA",
+        "clue": "Large body of salt water"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "STONE",
+        "clue": "A small piece of solid rock."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "ARM",
+        "clue": "Limb between shoulder and wrist"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "TAR",
+        "clue": "Dark sticky road material"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "STORM",
+        "clue": "Wind, rain, and a dramatic sky."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SIR",
+        "clue": "Formal way to address a man"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "TOY",
+        "clue": "Something a child plays with"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "ION",
+        "clue": "Atom with an electric charge"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "RYE",
+        "clue": "Grain used in some dark breads"
+      }
+    ]
+  },
+  {
+    "rows": ["##SOY", "##HUE", "STARS", "PAD##", "APE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SOY",
+        "clue": "Bean used to make tofu"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "SHADE",
+        "clue": "Shelter from direct sunlight."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "OUR",
+        "clue": "Belonging to us"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "YES",
+        "clue": "An affirmative answer"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "HUE",
+        "clue": "A shade of colour"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "STARS",
+        "clue": "Distant suns in the night sky."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SPA",
+        "clue": "Place for relaxation treatments"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "TAP",
+        "clue": "Lightly touch, or a water outlet"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "PAD",
+        "clue": "Cushion, or a block of paper"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "APE",
+        "clue": "Gorilla, for example"
+      }
+    ]
+  },
+  {
+    "rows": ["##PIG", "##ATE", "TRUST", "HAS##", "EWE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "PIG",
+        "clue": "Farm animal that oinks"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "PAUSE",
+        "clue": "A brief and welcome break."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "ITS",
+        "clue": "Belonging to it"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "GET",
+        "clue": "Obtain"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "ATE",
+        "clue": "Had a meal"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "TRUST",
+        "clue": "Belief in someone’s reliability."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "THE",
+        "clue": "Most common English definite article"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "RAW",
+        "clue": "Not cooked"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "HAS",
+        "clue": "She ___ a book"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "EWE",
+        "clue": "Female sheep"
+      }
+    ]
+  },
+  {
+    "rows": ["##FOG", "##RAY", "STORM", "HIS##", "YET##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "FOG",
+        "clue": "Cloud close to the ground"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "FROST",
+        "clue": "Ice crystals on a cold morning."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "OAR",
+        "clue": "Tool for rowing a boat"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "GYM",
+        "clue": "Place to work out"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "RAY",
+        "clue": "A narrow beam of light"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "STORM",
+        "clue": "Wind, rain, and a dramatic sky."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SHY",
+        "clue": "Nervous around new people"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "TIE",
+        "clue": "Neckwear, or an equal score"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "HIS",
+        "clue": "Belonging to that man"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "YET",
+        "clue": "Up to now"
+      }
+    ]
+  },
+  {
+    "rows": ["##WON", "##HUE", "HEART", "OWL##", "TEE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "WON",
+        "clue": "Past tense of win"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "WHALE",
+        "clue": "A very large ocean mammal."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "OUR",
+        "clue": "Belonging to us"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "NET",
+        "clue": "Mesh used to catch fish"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "HUE",
+        "clue": "A shade of colour"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "HEART",
+        "clue": "The organ that keeps blood moving."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "HOT",
+        "clue": "Opposite of cold"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "EWE",
+        "clue": "Female sheep"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "OWL",
+        "clue": "Night bird with large eyes"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "TEE",
+        "clue": "Small support for a golf ball"
+      }
+    ]
+  },
+  {
+    "rows": ["##SEA", "##HAS", "SPARK", "HAD##", "EWE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SEA",
+        "clue": "Large body of salt water"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "SHADE",
+        "clue": "Shelter from direct sunlight."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "ASK",
+        "clue": "Pose a question"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "HAS",
+        "clue": "She ___ a book"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "SPARK",
+        "clue": "A tiny flash that can start something."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SHE",
+        "clue": "Pronoun paired with her"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "PAW",
+        "clue": "An animal's foot"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "HAD",
+        "clue": "Past tense of have"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "EWE",
+        "clue": "Female sheep"
+      }
+    ]
+  },
+  {
+    "rows": ["##POP", "##LIE", "KOALA", "INN##", "NET##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "POP",
+        "clue": "A short sharp sound"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "PLANT",
+        "clue": "A living thing with roots and leaves."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "OIL",
+        "clue": "Liquid pressed from olives"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "PEA",
+        "clue": "Small green vegetable in a pod"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "LIE",
+        "clue": "An untrue statement"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "KOALA",
+        "clue": "An Australian eucalyptus eater."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "KIN",
+        "clue": "Family members"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "ONE",
+        "clue": "The first positive integer"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "INN",
+        "clue": "Small hotel"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "NET",
+        "clue": "Mesh used to catch fish"
+      }
+    ]
+  },
+  {
+    "rows": ["##SKI", "##WIT", "SEEDS", "ARE##", "PAT##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SKI",
+        "clue": "Glide over snow"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "SWEET",
+        "clue": "Like the taste of honey."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "KID",
+        "clue": "A child, informally"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "ITS",
+        "clue": "Belonging to it"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "WIT",
+        "clue": "Quick and clever humour"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "SEEDS",
+        "clue": "Tiny beginnings of new plants."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SAP",
+        "clue": "Fluid that flows through a tree"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "ERA",
+        "clue": "A period of history"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "ARE",
+        "clue": "You ___ here"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "PAT",
+        "clue": "Touch gently with a flat hand"
+      }
+    ]
+  },
+  {
+    "rows": ["##SAP", "##ERA", "SWEET", "KID##", "ITS##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SAP",
+        "clue": "Fluid that flows through a tree"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "SEEDS",
+        "clue": "Tiny beginnings of new plants."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "ARE",
+        "clue": "You ___ here"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "PAT",
+        "clue": "Touch gently with a flat hand"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "ERA",
+        "clue": "A period of history"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "SWEET",
+        "clue": "Like the taste of honey."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SKI",
+        "clue": "Glide over snow"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "WIT",
+        "clue": "Quick and clever humour"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "KID",
+        "clue": "A child, informally"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "ITS",
+        "clue": "Belonging to it"
+      }
+    ]
+  },
+  {
+    "rows": ["##SPA", "##TAP", "SHADE", "OUR##", "YES##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SPA",
+        "clue": "Place for relaxation treatments"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "STARS",
+        "clue": "Distant suns in the night sky."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "PAD",
+        "clue": "Cushion, or a block of paper"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "APE",
+        "clue": "Gorilla, for example"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "TAP",
+        "clue": "Lightly touch, or a water outlet"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "SHADE",
+        "clue": "Shelter from direct sunlight."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SOY",
+        "clue": "Bean used to make tofu"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "HUE",
+        "clue": "A shade of colour"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "OUR",
+        "clue": "Belonging to us"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "YES",
+        "clue": "An affirmative answer"
+      }
+    ]
+  },
+  {
+    "rows": ["##SPA", "##HAT", "STONE", "EAR##", "APE##"],
+    "entries": [
+      {
+        "id": "1-across",
+        "number": 1,
+        "direction": "across",
+        "cells": [2, 3, 4],
+        "answer": "SPA",
+        "clue": "Place for relaxation treatments"
+      },
+      {
+        "id": "1-down",
+        "number": 1,
+        "direction": "down",
+        "cells": [2, 7, 12, 17, 22],
+        "answer": "SHORE",
+        "clue": "Where water meets land."
+      },
+      {
+        "id": "2-down",
+        "number": 2,
+        "direction": "down",
+        "cells": [3, 8, 13],
+        "answer": "PAN",
+        "clue": "Shallow cooking vessel"
+      },
+      {
+        "id": "3-down",
+        "number": 3,
+        "direction": "down",
+        "cells": [4, 9, 14],
+        "answer": "ATE",
+        "clue": "Had a meal"
+      },
+      {
+        "id": "4-across",
+        "number": 4,
+        "direction": "across",
+        "cells": [7, 8, 9],
+        "answer": "HAT",
+        "clue": "Head covering"
+      },
+      {
+        "id": "5-across",
+        "number": 5,
+        "direction": "across",
+        "cells": [10, 11, 12, 13, 14],
+        "answer": "STONE",
+        "clue": "A small piece of solid rock."
+      },
+      {
+        "id": "5-down",
+        "number": 5,
+        "direction": "down",
+        "cells": [10, 15, 20],
+        "answer": "SEA",
+        "clue": "Large body of salt water"
+      },
+      {
+        "id": "6-down",
+        "number": 6,
+        "direction": "down",
+        "cells": [11, 16, 21],
+        "answer": "TAP",
+        "clue": "Lightly touch, or a water outlet"
+      },
+      {
+        "id": "7-across",
+        "number": 7,
+        "direction": "across",
+        "cells": [15, 16, 17],
+        "answer": "EAR",
+        "clue": "Organ used for hearing"
+      },
+      {
+        "id": "8-across",
+        "number": 8,
+        "direction": "across",
+        "cells": [20, 21, 22],
+        "answer": "APE",
+        "clue": "Gorilla, for example"
+      }
+    ]
+  }
+]

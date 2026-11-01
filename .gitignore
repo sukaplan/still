@@ -1,0 +1,9 @@
+dist/
+node_modules/
+.DS_Store
+.openai/*credential*
+worker/
+.env
+.env.*
+!.env.example
+.openai/hosting.json

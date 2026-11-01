@@ -1,0 +1,236 @@
+[
+  [
+    "Geborgenheit",
+    "die",
+    "a feeling of safety and belonging",
+    "Hier fühle ich mich geborgen.",
+    "I feel safe and at home here."
+  ],
+  [
+    "Vorfreude",
+    "die",
+    "joyful anticipation",
+    "Die Vorfreude auf die Reise ist groß.",
+    "There is great excitement about the trip."
+  ],
+  [
+    "Neugier",
+    "die",
+    "curiosity",
+    "Meine Neugier kennt keine Grenzen.",
+    "My curiosity knows no bounds."
+  ],
+  [
+    "Zuversicht",
+    "die",
+    "confidence and hope for the future",
+    "Ich schaue mit Zuversicht nach vorn.",
+    "I look ahead with confidence."
+  ],
+  ["Augenblick", "der", "a moment", "Genieße diesen Augenblick.", "Enjoy this moment."],
+  [
+    "Gelassenheit",
+    "die",
+    "calmness and composure",
+    "Ich wünsche mir mehr Gelassenheit.",
+    "I wish for more calmness."
+  ],
+  [
+    "Fernweh",
+    "das",
+    "a longing to travel",
+    "Im Frühling bekomme ich Fernweh.",
+    "In spring I feel a longing to travel."
+  ],
+  ["Hoffnung", "die", "hope", "Ich gebe die Hoffnung nicht auf.", "I do not give up hope."],
+  [
+    "Entdeckung",
+    "die",
+    "discovery",
+    "Jeder Tag bringt eine neue Entdeckung.",
+    "Every day brings a new discovery."
+  ],
+  [
+    "Wunder",
+    "das",
+    "wonder or miracle",
+    "Die Natur ist voller Wunder.",
+    "Nature is full of wonders."
+  ],
+  ["Sonnenaufgang", "der", "sunrise", "Wir beobachten den Sonnenaufgang.", "We watch the sunrise."],
+  [
+    "Gemütlichkeit",
+    "die",
+    "a feeling of cosiness",
+    "Dieses Zimmer strahlt Gemütlichkeit aus.",
+    "This room radiates cosiness."
+  ],
+  [
+    "Sehnsucht",
+    "die",
+    "a deep longing",
+    "Ich habe Sehnsucht nach dem Meer.",
+    "I long for the sea."
+  ],
+  [
+    "Leichtigkeit",
+    "die",
+    "lightness and ease",
+    "Mit Musik fühlt sich alles leichter an.",
+    "With music everything feels lighter."
+  ],
+  [
+    "Achtsamkeit",
+    "die",
+    "mindfulness or attentiveness",
+    "Ich übe jeden Tag Achtsamkeit.",
+    "I practise mindfulness every day."
+  ],
+  [
+    "Freundschaft",
+    "die",
+    "friendship",
+    "Unsere Freundschaft ist mir wichtig.",
+    "Our friendship matters to me."
+  ],
+  ["Erinnerung", "die", "memory", "Das ist eine schöne Erinnerung.", "That is a lovely memory."],
+  ["Zuhause", "das", "home", "Zu Hause kann ich mich entspannen.", "At home I can relax."],
+  [
+    "Stille",
+    "die",
+    "silence or stillness",
+    "Ich genieße die Stille am Morgen.",
+    "I enjoy the morning stillness."
+  ],
+  ["Wald", "der", "forest", "Wir gehen im Wald spazieren.", "We take a walk in the forest."],
+  ["Blüte", "die", "blossom", "Die erste Blüte öffnet sich.", "The first blossom opens."],
+  [
+    "Licht",
+    "das",
+    "light",
+    "Das Licht fällt durch die Bäume.",
+    "The light falls through the trees."
+  ],
+  ["Gedanke", "der", "thought", "Das ist ein schöner Gedanke.", "That is a lovely thought."],
+  ["Horizont", "der", "horizon", "Am Horizont liegt das Meer.", "The sea lies on the horizon."],
+  ["Kunst", "die", "art", "Kunst lässt uns anders sehen.", "Art lets us see differently."],
+  [
+    "Wissen",
+    "das",
+    "knowledge",
+    "Wissen wächst, wenn man es teilt.",
+    "Knowledge grows when you share it."
+  ],
+  ["Mut", "der", "courage", "Etwas Neues braucht Mut.", "Something new takes courage."],
+  ["Vertrauen", "das", "trust", "Vertrauen braucht Zeit.", "Trust takes time."],
+  [
+    "Weg",
+    "der",
+    "path or way",
+    "Jeder Weg beginnt mit einem Schritt.",
+    "Every path begins with a step."
+  ],
+  ["Traum", "der", "dream", "Ich arbeite an meinem Traum.", "I am working towards my dream."],
+  ["Reise", "die", "journey", "Jede Reise beginnt zu Hause.", "Every journey begins at home."],
+  [
+    "Möglichkeit",
+    "die",
+    "possibility",
+    "Es gibt immer eine neue Möglichkeit.",
+    "There is always a new possibility."
+  ],
+  [
+    "Geduld",
+    "die",
+    "patience",
+    "Eine neue Sprache braucht Geduld.",
+    "A new language takes patience."
+  ],
+  ["Dankbarkeit", "die", "gratitude", "Ich fühle tiefe Dankbarkeit.", "I feel deep gratitude."],
+  [
+    "Begeisterung",
+    "die",
+    "enthusiasm",
+    "Sie lernt mit Begeisterung.",
+    "She learns with enthusiasm."
+  ],
+  [
+    "Frühling",
+    "der",
+    "spring",
+    "Im Frühling wird alles grün.",
+    "In spring everything turns green."
+  ],
+  ["Sommer", "der", "summer", "Im Sommer sind die Tage lang.", "In summer the days are long."],
+  ["Herbst", "der", "autumn", "Im Herbst fallen die Blätter.", "In autumn the leaves fall."],
+  ["Winter", "der", "winter", "Im Winter ist der Wald still.", "In winter the forest is quiet."],
+  [
+    "Morgen",
+    "der",
+    "morning",
+    "Jeder Morgen ist ein neuer Anfang.",
+    "Every morning is a new beginning."
+  ],
+  ["Abend", "der", "evening", "Am Abend lese ich ein Buch.", "In the evening I read a book."],
+  ["Stern", "der", "star", "Ein Stern leuchtet am Himmel.", "A star shines in the sky."],
+  [
+    "Mond",
+    "der",
+    "moon",
+    "Heute ist der Mond besonders hell.",
+    "Today the moon is especially bright."
+  ],
+  ["Himmel", "der", "sky", "Der Himmel ist voller Farben.", "The sky is full of colours."],
+  ["Meer", "das", "sea", "Am Meer fühle ich mich frei.", "By the sea I feel free."],
+  [
+    "Berg",
+    "der",
+    "mountain",
+    "Der Berg ist im Nebel verborgen.",
+    "The mountain is hidden in the mist."
+  ],
+  ["Garten", "der", "garden", "Im Garten wachsen neue Blumen.", "New flowers grow in the garden."],
+  [
+    "Blatt",
+    "das",
+    "leaf",
+    "Ein Blatt fällt leise zu Boden.",
+    "A leaf falls quietly to the ground."
+  ],
+  ["Wurzel", "die", "root", "Der Baum hat tiefe Wurzeln.", "The tree has deep roots."],
+  ["Brücke", "die", "bridge", "Eine Sprache ist eine Brücke.", "A language is a bridge."],
+  [
+    "Fenster",
+    "das",
+    "window",
+    "Ich öffne das Fenster zum Garten.",
+    "I open the window onto the garden."
+  ],
+  ["Buch", "das", "book", "Ein gutes Buch öffnet neue Welten.", "A good book opens new worlds."],
+  [
+    "Geschichte",
+    "die",
+    "story or history",
+    "Jedes Bild erzählt eine Geschichte.",
+    "Every picture tells a story."
+  ],
+  ["Farbe", "die", "colour", "Welche Farbe macht dich glücklich?", "Which colour makes you happy?"],
+  [
+    "Pinsel",
+    "der",
+    "paintbrush",
+    "Mit dem Pinsel entsteht ein Bild.",
+    "A picture takes shape with the paintbrush."
+  ],
+  ["Melodie", "die", "melody", "Diese Melodie bleibt im Kopf.", "This melody stays in your head."],
+  ["Spaziergang", "der", "walk or stroll", "Ein Spaziergang tut mir gut.", "A walk does me good."],
+  [
+    "Ruhe",
+    "die",
+    "rest or peace and quiet",
+    "Ich brauche heute etwas Ruhe.",
+    "I need a little quiet today."
+  ],
+  ["Freude", "die", "joy", "Kleine Dinge bringen mir Freude.", "Small things bring me joy."],
+  ["Anfang", "der", "beginning", "Jeder Tag ist ein neuer Anfang.", "Every day is a new beginning."]
+]
