@@ -1,3 +1,10 @@
+import {
+  DISCOVERY_COUNT,
+  DISCOVERY_KINDS,
+  isExcludedDiscovery,
+  discoveryID as contentID,
+} from '../discoveries.mjs';
+import { hydrateDiscovery, loadDiscovery, selectDiscovery } from './discovery-cards.js';
 /** Daily content loading, saved discoveries, and completion controls. */
 import { dailyPuzzle } from '../word-garden.mjs';
 import { MOMENTS, normalizeDay, puzzleStatus } from '../state.mjs';
@@ -11,6 +18,7 @@ import {
 } from './storage.js';
 import {
   $,
+  closeModal,
   escapeHTML,
   modalTitle,
   openModal,
@@ -20,8 +28,26 @@ import {
   html,
 } from './ui.js';
 import { refreshCards, render } from './views.js';
+export function readDiscoveryButton(kind) {
+  const verb = isDiscoveryComplete(kind) ? 'Review' : 'Read';
+  const label =
+    {
+      astronomy: 'astronomy',
+      science: 'science news',
+      tech: 'technology',
+      german: 'German word',
+      art: 'artwork',
+    }[kind] || kind;
+  return renderButton(
+    'read-' + kind,
+    verb + ' ' + renderIcon('arrow'),
+    'text-link discovery-read',
+    `aria-label="${verb} ${label}"`,
+  );
+}
+
 export function completionBadge(kind) {
-  const complete = getTodayProgress().done.includes(kind);
+  const complete = isDiscoveryComplete(kind);
   const text =
     kind === 'puzzle'
       ? puzzleStatus(getTodayProgress(), dailyPuzzle(session.today).answer).badge
@@ -33,7 +59,7 @@ export function completionBadge(kind) {
     : '';
 }
 export function completionClass(kind) {
-  return getTodayProgress().done.includes(kind) ? ' is-complete' : '';
+  return isDiscoveryComplete(kind) ? ' is-complete' : '';
 }
 export function bookmark(kind, data) {
   const id = discoveryID(kind, data);
@@ -52,10 +78,22 @@ export function bookmark(kind, data) {
   );
 }
 export function discoveryID(kind, data) {
-  return kind + ':' + (data?.id || data?.url || session.today);
+  return contentID(kind, data, session.today);
+}
+export function completionTarget(kind) {
+  const reading = session.currentReading;
+  return reading?.kind === kind && session.modalKind === kind && reading.date === session.today
+    ? reading.content
+    : getDailyContent(kind);
+}
+export function isDiscoveryComplete(kind, content = getDailyContent(kind)) {
+  const day = getTodayProgress();
+  if (!DISCOVERY_KINDS.includes(kind)) return day.done.includes(kind);
+  return !!content && day.readings[kind].includes(discoveryID(kind, content));
 }
 export function getDailyContent(kind) {
-  if (session.daily[kind]) return session.daily[kind];
+  if (session.daily[kind])
+    return isExcludedDiscovery(session.daily[kind]) ? null : session.daily[kind];
   if (session.loading[kind]) return null;
   if (kind === 'art')
     return {
@@ -72,16 +110,6 @@ export function getDailyContent(kind) {
       offline: true,
     };
   if (kind === 'german') return null;
-  if (kind === 'science')
-    return {
-      kind: 'science',
-      title: 'Why does the sky look blue?',
-      description:
-        'Sunlight contains many colours. Molecules in the atmosphere scatter shorter blue wavelengths more strongly than longer red wavelengths, sending blue light towards our eyes from across the sky.',
-      source: 'NASA Space Place',
-      url: 'https://spaceplace.nasa.gov/blue-sky/en/',
-      offline: true,
-    };
   return null;
 }
 export function sourceLine(d) {
@@ -103,16 +131,28 @@ export function sourceLine(d) {
 export function updateCompletionButton() {
   const b = $('#modal [data-action="complete"]');
   if (!b) return;
-  const done = getTodayProgress().done.includes(b.dataset.kind);
+  const done = isDiscoveryComplete(b.dataset.kind, completionTarget(b.dataset.kind));
   b.innerHTML = renderIcon('check') + ' ' + (done ? 'Completed' : 'Mark complete');
   b.setAttribute('aria-pressed', String(done));
   b.setAttribute('aria-label', done ? 'Mark as not complete' : 'Mark complete');
   b.classList.toggle('completed', done);
 }
 export function setMomentComplete(kind, complete = true) {
+  const content = completionTarget(kind);
+  if (DISCOVERY_KINDS.includes(kind) && !content) return false;
   if (!MOMENTS.includes(kind) || (kind === 'puzzle' && !complete)) return false;
   const changed = updatePersonalState((s) => {
     s.days[session.today] = normalizeDay(s.days[session.today]);
+    if (DISCOVERY_KINDS.includes(kind)) {
+      const day = s.days[session.today];
+      const id = discoveryID(kind, content);
+      day.readings[kind] = complete
+        ? [...new Set([...day.readings[kind], id])]
+        : day.readings[kind].filter((value) => value !== id);
+      day.done = day.done.filter((value) => value !== kind);
+      if (day.readings[kind].length) day.done.push(kind);
+      return;
+    }
     s.days[session.today].done = complete
       ? [...new Set([...s.days[session.today].done, kind])]
       : s.days[session.today].done.filter((x) => x !== kind);
@@ -129,16 +169,27 @@ export function markDone(kind) {
 }
 export function openDiscovery(kind, item) {
   const content = item || getDailyContent(kind);
+  if (isExcludedDiscovery(content)) {
+    toast('This article is hidden by your topic filter.');
+    return;
+  }
   if (!content) {
     if (session.loading[kind]) toast('Loading…');
     else loadKind(kind);
     return;
   }
   const isSaved = !!item;
+  const paged = !isSaved && DISCOVERY_KINDS.includes(kind);
+  const position = paged ? session.discoveryDecks[kind]?.position || 0 : 0;
+  const available = Math.min(DISCOVERY_COUNT, content.available || DISCOVERY_COUNT);
+  const counter = paged ? ` · ${position + 1} / ${available}` : '';
+  session.currentReading = !isSaved
+    ? { kind, content, date: session.today, position, available }
+    : null;
   let modalMarkup = '';
   if (kind === 'astronomy')
     modalMarkup =
-      modalTitle(content.title, 'ASTRONOMY · NASA') +
+      modalTitle(content.title, 'ASTRONOMY · NASA' + counter) +
       (content.image
         ? html`<img
             class="art-modal-image astronomy-modal-image"
@@ -192,8 +243,18 @@ export function openDiscovery(kind, item) {
   else {
     modalMarkup = modalTitle(
       content.title,
-      kind === 'art' ? 'Art' : kind === 'science' ? 'Science news' : 'Technology',
+      (kind === 'art' ? 'Art' : kind === 'science' ? 'Science news' : 'Technology') + counter,
     );
+    if (['science', 'tech'].includes(kind) && validURL(content.image))
+      modalMarkup += html`<img
+          class="news-modal-image"
+          src="${escapeHTML(content.image)}"
+          alt="${escapeHTML(content.imageAlt || content.title)}"
+          referrerpolicy="no-referrer"
+        />
+        <p class="picture-credit">
+          ${escapeHTML(content.imageAttribution || 'Image via ' + content.source)}
+        </p>`;
     if (kind === 'art')
       modalMarkup += html`<img
           class="art-modal-image"
@@ -221,50 +282,111 @@ export function openDiscovery(kind, item) {
       modalMarkup +=
         '<p class="gentle-error">The live source is unavailable. This is an offline selection.</p>';
   }
-  modalMarkup += html`<div class="modal-actions">
-      ${validURL(content.url)
-        ? html`<a
-            href="${escapeHTML(validURL(content.url))}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button"
-            >${escapeHTML(
-              kind === 'art'
-                ? 'Visit the museum'
-                : kind === 'german'
-                  ? 'Open Wiktionary'
-                  : kind === 'concept'
-                    ? 'Read more'
-                    : kind === 'astronomy'
-                      ? 'Read on NASA'
-                      : 'Read the full story',
-            )}
-            ${renderIcon('external')}</a
-          >`
-        : ''}${!isSaved
+  const sourceLink = validURL(content.url)
+    ? html`<a
+        href="${escapeHTML(validURL(content.url))}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="${paged ? 'article-source-link' : 'secondary-button'}"
+        >${escapeHTML(
+          kind === 'art'
+            ? 'Visit the museum'
+            : kind === 'german'
+              ? 'Open Wiktionary'
+              : kind === 'concept'
+                ? 'Read more'
+                : kind === 'astronomy'
+                  ? 'Read on NASA'
+                  : 'Read the full story',
+        )}
+        ${renderIcon('external')}</a
+      >`
+    : '';
+  const completion = !isSaved
+    ? renderButton(
+        'complete',
+        renderIcon('check') +
+          ' ' +
+          (isDiscoveryComplete(kind, content) ? 'Completed' : 'Mark complete'),
+        (paged ? 'secondary-button' : 'primary-button') +
+          ' completion-toggle' +
+          (isDiscoveryComplete(kind, content) ? ' completed' : ''),
+        `data-kind="${kind}" aria-pressed="${isDiscoveryComplete(kind, content)}"`,
+      )
+    : '';
+  const last = position + 1 >= available;
+  modalMarkup += html`<div class="modal-actions ${paged ? 'article-reading-actions' : ''}">
+      ${paged ? '' : sourceLink}${completion}
+      ${paged
         ? renderButton(
-            'complete',
-            renderIcon('check') +
-              ' ' +
-              (getTodayProgress().done.includes(kind) ? 'Completed' : 'Mark complete'),
-            'primary-button completion-toggle' +
-              (getTodayProgress().done.includes(kind) ? ' completed' : ''),
-            'data-kind="' +
-              kind +
-              '" aria-pressed="' +
-              getTodayProgress().done.includes(kind) +
-              '"',
+            'next-open-discovery',
+            (last ? 'Done' : 'Next') + ' ' + renderIcon(last ? 'check' : 'arrow'),
+            'primary-button article-next',
+            `data-kind="${kind}" aria-label="${last ? 'Close article and return to Today' : 'Read next article'}"`,
           )
         : ''}
     </div>
+    ${paged
+      ? '<p id="article-next-message" class="article-next-message" role="status" aria-live="polite"></p>'
+      : ''}
     <p class="picture-credit">
       ${kind === 'concept' ? 'Reference: ' : 'Source: '}${escapeHTML(
         content.source || '',
-      )}${kind === 'german' ? ' · Wiktionary text: CC BY-SA' : ''}
+      )}${kind === 'german' ? ' · Wiktionary text: CC BY-SA' : ''}${paged
+        ? html` · ${sourceLink}`
+        : ''}
     </p>`;
   openModal(modalMarkup, kind);
 }
-export async function loadKind(kind) {
+/** Advance the open reader without marking an unread article complete. */
+export async function nextOpenDiscovery(kind) {
+  const reading = session.currentReading;
+  if (
+    !reading ||
+    reading.kind !== kind ||
+    session.modalKind !== kind ||
+    reading.date !== session.today ||
+    !DISCOVERY_KINDS.includes(kind)
+  )
+    return;
+  if (reading.position + 1 >= reading.available) {
+    closeModal();
+    return;
+  }
+  if (session.loading[kind]) return;
+  const button = $('#modal [data-action="next-open-discovery"]');
+  const message = $('#article-next-message');
+  if (button) {
+    button.disabled = true;
+    button.textContent = 'Loading…';
+  }
+  if (message) message.textContent = '';
+  await selectDiscovery(kind, reading.position + 1, { focus: false });
+  // Closing the reader or opening another article while loading must stay respected.
+  if (
+    session.currentReading !== reading ||
+    session.modalKind !== kind ||
+    reading.date !== session.today
+  )
+    return;
+  const deck = session.discoveryDecks[kind];
+  if (deck?.position === reading.position + 1 && deck.items[deck.position]) {
+    openDiscovery(kind);
+    $('#modal').scrollTop = 0;
+    const heading = $('#modal-title');
+    heading?.setAttribute('tabindex', '-1');
+    heading?.focus({ preventScroll: true });
+  } else {
+    if (message) message.textContent = deck?.error || 'Could not load the next article. Try again.';
+    if (button) {
+      button.disabled = false;
+      button.innerHTML = 'Next ' + renderIcon('arrow');
+    }
+  }
+}
+
+export async function loadKind(kind, slot = 0, activate = true) {
+  if (DISCOVERY_KINDS.includes(kind)) return loadDiscovery(kind, slot, activate);
   const requestedDate = session.today,
     requestedZone = session.state.timezone;
   session.loading[kind] = true;
@@ -298,7 +420,12 @@ export async function loadKind(kind) {
 }
 export function loadDaily() {
   session.daily = {};
+  session.discoveryDecks = {};
   for (const kind of ['art', 'german', 'science', 'tech', 'astronomy']) {
+    if (DISCOVERY_KINDS.includes(kind)) {
+      hydrateDiscovery(kind);
+      continue;
+    }
     let cached;
     try {
       cached = JSON.parse(
@@ -339,12 +466,7 @@ export function toggleSave(kind) {
           title: kind === 'german' ? d.article + ' ' + d.word : d.title,
           description:
             kind === 'german' ? d.meaning : kind === 'concept' ? d.explanation : d.description,
-          image:
-            kind === 'science'
-              ? '/assets/forest.jpg'
-              : kind === 'tech'
-                ? '/assets/earth.jpg'
-                : d.image,
+          image: d.image || '',
           savedOn: session.today,
         });
     })

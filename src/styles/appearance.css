@@ -1,0 +1,410 @@
+/* Appearance is opt-in and scoped so the light palette stays unchanged. */
+.theme-setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.appearance-control {
+  position: relative;
+  flex: none;
+  width: 42px;
+  height: 24px;
+}
+.appearance-control input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+.appearance-track {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #b6bfb2;
+  border-radius: 20px;
+  background: #dce2d7;
+  transition: background 0.15s ease;
+}
+.appearance-track::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px #0002;
+  transition: transform 0.15s ease;
+}
+.appearance-control input:checked + .appearance-track {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.appearance-control input:checked + .appearance-track::after {
+  transform: translateX(18px);
+}
+.appearance-control input:focus-visible + .appearance-track {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #161e2b;
+  --card: #202b3c;
+  --ink: #e8edf5;
+  --muted: #b0bfd2;
+  --line: #3e4d65;
+  --pale: #2c3d55;
+  --clay: #a8bad0;
+  --accent: #b8d0ff;
+  --accent-dark: #cbdcff;
+  --accent-soft: #2b4166;
+  --accent-line: #758fbc;
+  --sage: #a9c5ff;
+  background: var(--paper);
+}
+:root[data-theme='dark'] body {
+  background: var(--paper);
+  color: var(--ink);
+}
+:root[data-theme='dark'] .sidebar {
+  background: #121b29;
+  border-color: var(--line);
+}
+:root[data-theme='dark'] .nav-link {
+  color: #bdcce1;
+}
+:root[data-theme='dark'] .nav-link:hover {
+  background: #273951;
+}
+:root[data-theme='dark'] .nav-link.active,
+:root[data-theme='dark'] .nav-link.active:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+:root[data-theme='dark'] :is(.card, .collection-item, .board-card) {
+  background: var(--card);
+  border-color: var(--line);
+}
+:root[data-theme='dark'] .astronomy-card {
+  background: #222f45;
+}
+:root[data-theme='dark'] .card.is-complete {
+  background: #25354e;
+  border-color: var(--accent-line);
+}
+:root[data-theme='dark']
+  :is(
+    .card-label,
+    .source-meta,
+    .artist-line,
+    .german-meaning,
+    .saved-date,
+    .picture-credit,
+    .settings-nav,
+    .source-list,
+    .source-list li,
+    .settings-block p,
+    .form-row label,
+    .goal-note,
+    .goal-step,
+    .moon-badge small,
+    .moon-stats span,
+    .moon-location-note,
+    .moon-coordinates,
+    .photo-attribution
+  ) {
+  color: var(--muted);
+}
+:root[data-theme='dark']
+  :is(
+    .modal-prose,
+    .german-example,
+    .moon-badge strong,
+    .moon-stats strong,
+    .crossword-clue strong
+  ) {
+  color: var(--ink);
+}
+:root[data-theme='dark'] .card.is-complete .card-label {
+  color: #d2def3;
+}
+:root[data-theme='dark'] .topbar > div {
+  color: var(--muted);
+}
+:root[data-theme='dark'] .daily-progress > span:first-child {
+  color: #b8cdf0;
+}
+:root[data-theme='dark'] .primary-button {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #17243b;
+}
+:root[data-theme='dark'] .primary-button:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #17243b;
+}
+:root[data-theme='dark'] .secondary-button {
+  background: #1c2a40;
+  color: var(--accent);
+  border-color: #7589ad;
+}
+:root[data-theme='dark'] .secondary-button:hover {
+  background: #2c3e5c;
+  color: var(--accent-dark);
+}
+:root[data-theme='dark'] .completion-toggle.completed {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+:root[data-theme='dark'] .circle-arrow {
+  border-color: var(--accent-line);
+}
+:root[data-theme='dark'] .modal-close {
+  background: var(--card);
+  border-color: var(--line);
+  color: var(--muted);
+}
+:root[data-theme='dark'] dialog::backdrop {
+  background: #050b16aa;
+}
+:root[data-theme='dark']
+  :is(
+    .form-row input:not([type='range']),
+    .form-row textarea,
+    .form-row select,
+    .moon-location-picker select,
+    #image-query,
+    #guess-input
+  ) {
+  background: #192438;
+  border-color: #7084a2;
+  color: var(--ink);
+}
+:root[data-theme='dark'] :is(input, textarea)::placeholder {
+  color: #a8b8ce;
+}
+:root[data-theme='dark'] .filter {
+  background: #222e43;
+  color: var(--muted);
+  border-color: var(--line);
+}
+:root[data-theme='dark'] .filter.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent-line);
+}
+:root[data-theme='dark'] :is(.source-badge, .completion-badge) {
+  background: #2b3c58;
+  color: #d4e1f5;
+}
+:root[data-theme='dark'] .thin-progress {
+  background: #394d6d;
+}
+:root[data-theme='dark'] .goal-step input {
+  accent-color: var(--accent);
+}
+:root[data-theme='dark'] .image-result {
+  background: var(--card);
+  border-color: var(--line);
+  color: var(--muted);
+}
+:root[data-theme='dark'] .image-result.selected {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+:root[data-theme='dark'] .toast {
+  background: #24334b;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+:root[data-theme='dark'] .skeleton {
+  background: linear-gradient(100deg, #27364f, #344968, #27364f);
+  background-size: 200% 100%;
+}
+:root[data-theme='dark'] .discovery-dot::before {
+  background: #a1b5d1;
+}
+:root[data-theme='dark'] .discovery-dot.current::before {
+  background: var(--accent);
+}
+:root[data-theme='dark'] .discovery-dot.read:not(.current)::before {
+  background: #b7cdec;
+}
+:root[data-theme='dark'] .astronomy-placeholder {
+  background: #2a3d5c;
+  color: #b1c4df;
+}
+
+/* Keep the games' familiar status colours while adapting empty cells and controls. */
+:root[data-theme='dark'] :is(.tile, .key) {
+  background: #29384f;
+  color: var(--ink);
+  border-color: #687f9d;
+}
+:root[data-theme='dark'] :is(.tile.correct, .key.correct, .mini-tiles span.correct) {
+  background: #59775f;
+  border-color: #59775f;
+  color: #fff;
+}
+:root[data-theme='dark'] :is(.tile.present, .key.present, .mini-tiles span.present) {
+  background: #786d3d;
+  border-color: #786d3d;
+  color: #fff;
+}
+:root[data-theme='dark'] :is(.tile.absent, .key.absent, .mini-tiles span.absent) {
+  background: #38455a;
+  border-color: #38455a;
+  color: #d5deed;
+}
+:root[data-theme='dark'] .mini-tiles span:not(.correct):not(.present):not(.absent) {
+  background: #26354d;
+  border-color: #607795;
+  color: var(--muted);
+}
+:root[data-theme='dark'] .crossword-preview span {
+  background: #2c3d58;
+  border-color: #667f9f;
+  color: var(--ink);
+}
+:root[data-theme='dark'] :is(.crossword-preview span.block, .crossword-block) {
+  background: #101b2b;
+  border-color: #101b2b;
+}
+:root[data-theme='dark'] .crossword-grid {
+  background: #7189aa;
+  border-color: #7189aa;
+}
+:root[data-theme='dark'] .crossword-cell {
+  background: #263751;
+}
+:root[data-theme='dark'] .crossword-cell input {
+  color: var(--ink);
+}
+:root[data-theme='dark'] .crossword-number {
+  color: #c1d0e4;
+}
+:root[data-theme='dark'] .crossword-cell.in-word {
+  background: #304563;
+}
+:root[data-theme='dark'] .crossword-cell.current-cell {
+  background: #47628d;
+}
+:root[data-theme='dark'] .crossword-cell.incorrect {
+  background: #57313e;
+}
+:root[data-theme='dark'] .crossword-cell.incorrect input {
+  color: #ffc0b4;
+}
+:root[data-theme='dark'] .crossword-clue {
+  color: #bfcee2;
+}
+:root[data-theme='dark'] .crossword-clue.selected {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+:root[data-theme='dark'] .crossword-current-clue {
+  color: var(--ink);
+}
+:root[data-theme='dark'] .sudoku-levels {
+  background: #121d30;
+}
+:root[data-theme='dark'] .sudoku-level.active {
+  background: #314969;
+  color: var(--ink);
+}
+:root[data-theme='dark'] .sudoku-cell {
+  background: #222e43;
+  color: var(--accent);
+  border-color: #5c7392;
+}
+:root[data-theme='dark'] .sudoku-cell.given {
+  color: var(--ink);
+}
+:root[data-theme='dark'] .sudoku-cell.peer {
+  background: #2b3e5c;
+}
+:root[data-theme='dark'] .sudoku-cell.matching {
+  background: #365078;
+}
+:root[data-theme='dark'] .sudoku-cell.selected {
+  background: #3a5074;
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+:root[data-theme='dark'] .sudoku-cell.incorrect {
+  background: #57313e;
+  color: #ffc0b4;
+}
+:root[data-theme='dark'] :is(.sudoku-grid, .sudoku-cell.box-right, .sudoku-cell.box-bottom) {
+  border-color: #93acd1;
+}
+:root[data-theme='dark'] .sudoku-notes i {
+  color: #c9d7eb;
+}
+:root[data-theme='dark'] .sudoku-number {
+  background: #2c3e5b;
+  border-color: #758eb0;
+  color: var(--ink);
+}
+:root[data-theme='dark'] .sudoku-number:hover:not(:disabled) {
+  background: #3a5278;
+  border-color: #9fb9df;
+}
+:root[data-theme='dark'] .sudoku-tools .secondary-button.active {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+:root[data-theme='dark'] .sudoku-preview {
+  border-color: #9cb6db;
+  color: #d0def2;
+}
+:root[data-theme='dark'] .sudoku-preview span {
+  background: #283b58;
+  border-color: #617c9f;
+}
+:root[data-theme='dark'] .sudoku-preview .box-right,
+:root[data-theme='dark'] .sudoku-preview .box-bottom {
+  border-color: #9cb6db;
+}
+
+:root[data-theme='dark'] .source-list strong {
+  color: var(--ink);
+}
+:root[data-theme='dark'] .source-list a {
+  color: var(--accent);
+}
+:root[data-theme='dark']
+  :is(
+    .hint,
+    .empty-state p,
+    .sudoku-meta,
+    .sudoku-footer,
+    .crossword-layout .puzzle-message,
+    .german-example-translation
+  ) {
+  color: var(--muted);
+}
+:root[data-theme='dark'] :is(.goal-category, .goal-meta > span, .german-title small, .goal-body p) {
+  color: var(--muted);
+}
+:root[data-theme='dark'] .goal-edit {
+  background: #263c5d;
+  color: var(--ink);
+  border: 1px solid #9ab4da;
+}
+:root[data-theme='dark'] :is(.form-error, .gentle-error) {
+  color: #f3adbc;
+}

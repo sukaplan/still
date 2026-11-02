@@ -4,6 +4,8 @@ export const session = {
   storageAvailable: true,
   today: null,
   daily: {},
+  discoveryDecks: {},
+  currentReading: null,
   loading: {},
   route: 'home',
   filter: 'All',
@@ -24,4 +26,9 @@ export const session = {
   crosswordCell: null,
   crosswordChecked: false,
   savedSpeakingItem: null,
+  sudokuCell: null,
+  sudokuNotes: false,
+  sudokuChecked: false,
+  sudokuResetPending: false,
+  sudokuHistory: {},
 };

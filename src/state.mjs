@@ -1,9 +1,26 @@
-export const MOMENTS = ['puzzle', 'crossword', 'science', 'astronomy', 'tech', 'german', 'art'];
+import { DISCOVERY_KINDS, normalizeReadings } from './discoveries.mjs';
+import { normalizeSudokuState } from './sudoku.mjs';
+
+export const MOMENTS = [
+  'puzzle',
+  'crossword',
+  'sudoku',
+  'science',
+  'astronomy',
+  'tech',
+  'german',
+  'art',
+];
 
 export function normalizeDay(value = {}) {
+  const readings = normalizeReadings(value.readings);
   return {
+    readings,
     done: [
-      ...new Set((Array.isArray(value.done) ? value.done : []).filter((x) => MOMENTS.includes(x))),
+      ...new Set([
+        ...(Array.isArray(value.done) ? value.done : []).filter((x) => MOMENTS.includes(x)),
+        ...DISCOVERY_KINDS.filter((kind) => readings[kind].length),
+      ]),
     ],
     guesses: [
       ...new Set(
@@ -12,6 +29,7 @@ export function normalizeDay(value = {}) {
         ),
       ),
     ].slice(0, 6),
+    sudoku: normalizeSudokuState(value.sudoku),
     crossword: {
       letters: Array.from({ length: 25 }, (_, i) =>
         typeof value.crossword?.letters?.[i] === 'string' &&

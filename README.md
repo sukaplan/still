@@ -1,6 +1,6 @@
 # Still
 
-Still is a calm space for a daily pause: play Word Garden or a mini crossword, explore astronomy, read science and technology news, learn a German word, discover a painting, and build a personal vision board with photos and small, trackable steps.
+Still is a calm space for a daily pause: play Word Garden, a mini crossword, or Sudoku in three difficulties, explore astronomy, read science and technology news, learn a German word, discover a painting, and build a personal vision board with photos and small, trackable steps.
 
 [Open Still](https://still-a-little-every-day.cleanode2.chatgpt.site/)
 
@@ -15,19 +15,21 @@ Still is a calm space for a daily pause: play Word Garden or a mini crossword, e
 
 The browser requests the app's `/api/*` routes with the selected date and time zone. The server fetches these public sources without private API keys:
 
-| Feature                   | Source and selection                                                                                                                                               |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Science news              | [ScienceDaily RSS](https://www.sciencedaily.com/rss/all.xml); one date-based selection, preferring stories from that local day.                                    |
-| Technology news           | [TechCrunch RSS](https://techcrunch.com/feed/), with [Ars Technica](https://feeds.arstechnica.com/arstechnica/technology-lab) as a fallback.                       |
-| Astronomy                 | [NASA Astronomy Picture of the Day](https://science.nasa.gov/apod/); the current image, explanation, credits, and original publication date.                       |
-| Art                       | [Cleveland Museum of Art Open Access API](https://openaccess-api.clevelandart.org/api/artworks/); a date-based painting selection with its image and museum facts. |
-| German                    | A rotating local vocabulary collection, enriched with a definition and pronunciation from [Wiktionary](https://en.wiktionary.org/w/api.php).                       |
-| Vision-board photo search | [Wikimedia Commons](https://commons.wikimedia.org/w/api.php); image results include source and license attribution.                                                |
-| Puzzles                   | Local word and crossword collections selected deterministically by date.                                                                                           |
+| Feature                   | Source and selection                                                                                                                                                   |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Science news              | [ScienceDaily RSS](https://www.sciencedaily.com/rss/all.xml); three distinct date-based selections, preferring stories from that local day.                            |
+| Technology news           | [TechCrunch RSS](https://techcrunch.com/feed/), with [Ars Technica](https://feeds.arstechnica.com/arstechnica/technology-lab) as a fallback.                           |
+| Astronomy                 | [NASA APOD RSS](https://science.nasa.gov/feed/apod-basic/); three recent astronomy images and explanations, with credits and original publication dates.               |
+| Art                       | [Cleveland Museum of Art Open Access API](https://openaccess-api.clevelandart.org/api/artworks/); a date-based painting selection with its image and museum facts.     |
+| German                    | A rotating local vocabulary collection, enriched with a definition and pronunciation from [Wiktionary](https://en.wiktionary.org/w/api.php).                           |
+| Vision-board photo search | [Wikimedia Commons](https://commons.wikimedia.org/w/api.php); image results include source and license attribution.                                                    |
+| Puzzles                   | Local word, crossword, and uniquely solvable Sudoku collections selected deterministically by date. Sudoku offers Easy, Medium, and Hard with separate saved progress. |
+
+Astronomy, Science news, and Technology each offer three items. News images come from publisher RSS thumbnails or the selected article’s Open Graph metadata, with a neutral illustration when no image is available. Next, beside Mark complete in the open article, fetches another item on demand and keeps the reader open. Dots and swipes on the cards revisit earlier items. Cancer-related articles are excluded using titles, summaries, and RSS topic tags; the filter also applies to cached items. Each item has its own bookmark and completion state, and completing any one item counts toward that daily activity.
 
 Daily responses are cached in the browser by date and time zone; the server also uses the hosting cache when available. NASA content carries its actual source date and is retried after 15 minutes if today's feature has not arrived. News may show the latest available story when nothing was published that day. Source failures show a retry option; German vocabulary remains available locally.
 
-Progress, saved discoveries, vision-board images, settings, and optional location coordinates stay in that browser's `localStorage`. There are no accounts, database, or cross-device sync. Settings includes JSON backup and import. Browser geolocation is requested only after choosing **Use my location**; lunar calculations happen on the device.
+Settings includes a persistent Dark appearance switch. Progress, saved discoveries, vision-board images, settings, and optional location coordinates stay in that browser's `localStorage`. There are no accounts, database, or cross-device sync. Settings includes JSON backup and import. Browser geolocation is requested only after choosing **Use my location**; lunar calculations happen on the device.
 
 ## Run locally
 

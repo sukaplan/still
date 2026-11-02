@@ -32,7 +32,7 @@ test('completion is deduplicated and crossword progress survives normalization',
   });
   assert.deepEqual(d.done, ['art', 'crossword']);
   assert.deepEqual(d.crossword.letters.slice(0, 4), ['A', '', '', 'Z']);
-  assert.equal(MOMENTS.length, 7);
+  assert.equal(MOMENTS.length, 8);
 });
 test('old next steps migrate without inventing progress from a slider', () => {
   assert.deepEqual(goalSteps({ next: 'Book a ticket', progress: 75 }), [

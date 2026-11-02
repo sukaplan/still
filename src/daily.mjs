@@ -1,3 +1,5 @@
+import { enrichStoryImage, parseFeedImage } from './news-images.mjs';
+import { chooseDiscovery, uniqueDiscoveries, validateDiscoveryRequest } from './discoveries.mjs';
 import { ordinal, dateInZone } from './date-utils.mjs';
 import { GERMAN } from './data/vocabulary.mjs';
 
@@ -42,6 +44,10 @@ export function parseRSS(xml) {
       description: tag(m[1], 'description').slice(0, 900),
       url: safeURL(tag(m[1], 'link')),
       publishedAt: tag(m[1], 'pubDate'),
+      image: parseFeedImage(m[1], safeURL(tag(m[1], 'link'))),
+      topics: [...m[1].matchAll(/<category(?:\s[^>]*)?>([\s\S]*?)<\/category>/gi)].map(
+        ([, category]) => stripMarkup(category),
+      ),
     }))
     .filter((x) => x.title && x.url);
 }
@@ -64,48 +70,50 @@ export function chooseFeed(
   zone = 'Europe/Istanbul',
   source = kind === 'tech' ? 'TechCrunch' : 'ScienceDaily',
 ) {
-  const d = ordinal(date);
-  const today = items.filter(
-    (x) => Number.isFinite(Date.parse(x.publishedAt)) && dateInZone(x.publishedAt, zone) === date,
+  return chooseFeedItem(items, date, kind, zone, source);
+}
+export function chooseFeedItem(items, date, kind, zone, source, slot = 0, excluded = []) {
+  const unique = uniqueDiscoveries(items);
+  const today = unique.filter(
+    (item) =>
+      Number.isFinite(Date.parse(item.publishedAt)) && dateInZone(item.publishedAt, zone) === date,
   );
-  const pool = today.length ? today : items.slice(0, 15);
+  const pool = today.length ? today : unique.slice(0, 15);
   if (!pool.length) throw new Error('No stories');
-  const choice = pool[Math.abs(d * (kind === 'tech' ? 7 : 17)) % pool.length];
-  return {
-    ...choice,
+  const start = Math.abs(ordinal(date) * (kind === 'tech' ? 7 : 17)) % pool.length;
+  const rotated = [...pool.slice(start), ...pool.slice(0, start)];
+  // Recent stories fill any remaining slots when fewer than three were published today.
+  const deck = uniqueDiscoveries([...rotated, ...unique.slice(0, 50)]).map((item) => ({
+    ...item,
     kind,
     source,
-    isToday: today.length > 0,
     date,
+    isToday:
+      Number.isFinite(Date.parse(item.publishedAt)) && dateInZone(item.publishedAt, zone) === date,
     fetchedAt: new Date().toISOString(),
-  };
+  }));
+  return chooseDiscovery(deck, slot, excluded);
 }
-export async function fetchStory(kind, date, zone) {
-  if (kind === 'science')
-    return chooseFeed(
-      parseRSS(await upstream('https://www.sciencedaily.com/rss/all.xml', false)),
-      date,
-      kind,
-      zone,
-    );
-  try {
-    return chooseFeed(
-      parseRSS(await upstream('https://techcrunch.com/feed/', false)),
-      date,
-      kind,
-      zone,
-      'TechCrunch',
-    );
-  } catch {
-    return chooseFeed(
-      parseRSS(await upstream('https://feeds.arstechnica.com/arstechnica/technology-lab', false)),
-      date,
-      kind,
-      zone,
-      'Ars Technica',
-    );
+export async function fetchStory(kind, date, zone, slot = 0, excluded = []) {
+  let items, source;
+  if (kind === 'science') {
+    items = parseRSS(await upstream('https://www.sciencedaily.com/rss/all.xml', false));
+    source = 'ScienceDaily';
+  } else {
+    try {
+      items = parseRSS(await upstream('https://techcrunch.com/feed/', false));
+      if (!items.length) throw Error('Empty feed');
+      source = 'TechCrunch';
+    } catch {
+      items = parseRSS(
+        await upstream('https://feeds.arstechnica.com/arstechnica/technology-lab', false),
+      );
+      source = 'Ars Technica';
+    }
   }
+  return enrichStoryImage(chooseFeedItem(items, date, kind, zone, source, slot, excluded));
 }
+
 function cleanWiki(s) {
   for (let i = 0; i < 5; i++) s = s.replace(/\{\{[^{}]*\}\}/g, '');
   return s
@@ -223,8 +231,27 @@ export async function apiResponse(request, ctx) {
     new Date(date + 'T12:00:00Z').toISOString().slice(0, 10) !== date
   )
     return Response.json({ error: 'Invalid date' }, { status: 400 });
+  let selection;
+  try {
+    selection = validateDiscoveryRequest(u);
+  } catch (error) {
+    return Response.json({ error: error.message }, { status: 400 });
+  }
+  const { slot, excluded } = selection;
+  if (!['science', 'tech'].includes(kind) && (slot || excluded.length))
+    return Response.json({ error: 'Invalid item' }, { status: 400 });
   const cacheKey = new Request(
-    u.origin + '/_cache/v2/api/' + kind + '?date=' + date + '&timezone=' + encodeURIComponent(zone),
+    u.origin +
+      '/_cache/v5/api/' +
+      kind +
+      '?date=' +
+      date +
+      '&timezone=' +
+      encodeURIComponent(zone) +
+      '&slot=' +
+      slot +
+      '&excluded=' +
+      encodeURIComponent(excluded.join('|')),
   );
   let cache;
   try {
@@ -240,7 +267,7 @@ export async function apiResponse(request, ctx) {
         ? await fetchGerman(date)
         : kind === 'art'
           ? await fetchArt(date)
-          : await fetchStory(kind, date, zone);
+          : await fetchStory(kind, date, zone, slot, excluded);
     const res = Response.json(data, {
       headers: { 'Cache-Control': 'public, max-age=86400', 'X-Still-Date': date },
     });
@@ -252,7 +279,12 @@ export async function apiResponse(request, ctx) {
       } catch {}
     }
     return res;
-  } catch {
+  } catch (error) {
+    if (error instanceof RangeError)
+      return Response.json(
+        { error: error.message },
+        { status: 404, headers: { 'Cache-Control': 'no-store' } },
+      );
     return Response.json(
       { error: 'This source is taking a quiet moment. Please try again.', kind, date },
       { status: 503, headers: { 'Cache-Control': 'no-store' } },

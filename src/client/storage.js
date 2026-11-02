@@ -1,3 +1,6 @@
+import { normalizeReadings } from '../discoveries.mjs';
+import { completedSudokuLevels, mergeSudokuProgress } from '../sudoku.mjs';
+import { openSudoku } from './sudoku.js';
 /** Browser-local personal data, legacy migrations, backup/import, and cross-tab sync. */
 import { crosswordStatus, dailyCrossword } from '../crosswords.mjs';
 import { dailyPuzzle } from '../word-garden.mjs';
@@ -100,6 +103,7 @@ export const GOAL_CATEGORIES = [
 export const createInitialState = () => ({
   version: 1,
   timezone: 'Europe/Istanbul',
+  theme: 'light',
   location: null,
   goals: structuredClone(SAMPLE_GOALS),
   saved: [],
@@ -142,6 +146,7 @@ export function normalizePersonalState(value) {
   )
     throw Error('Invalid backup');
   const normalized = createInitialState();
+  normalized.theme = value.theme === 'dark' ? 'dark' : 'light';
   try {
     new Intl.DateTimeFormat('en', {
       timeZone: value.timezone,
@@ -202,6 +207,8 @@ export function normalizePersonalState(value) {
         d.done.push('crossword');
       if (puzzleStatus(d, dailyPuzzle(k).answer).complete && !d.done.includes('puzzle'))
         d.done.push('puzzle');
+      d.done = d.done.filter((kind) => kind !== 'sudoku');
+      if (completedSudokuLevels(d.sudoku, k).length) d.done.push('sudoku');
       normalized.days[k] = d;
     }
   }
@@ -237,6 +244,8 @@ export function getTodayProgress() {
     d.done.push('crossword');
   if (puzzleStatus(d, dailyPuzzle(session.today).answer).complete && !d.done.includes('puzzle'))
     d.done.push('puzzle');
+  d.done = d.done.filter((kind) => kind !== 'sudoku');
+  if (completedSudokuLevels(d.sudoku, session.today).length) d.done.push('sudoku');
   return d;
 }
 export function updatePersonalState(change) {
@@ -288,7 +297,7 @@ export function mergeDayProgress(current, backup, date) {
         ? b.crossword
         : a.crossword;
   const done = [...new Set([...a.done, ...b.done])].filter(
-    (k) => !['puzzle', 'crossword'].includes(k),
+    (k) => !['puzzle', 'crossword', 'sudoku'].includes(k),
   );
   if (
     puzzleStatus(
@@ -300,11 +309,14 @@ export function mergeDayProgress(current, backup, date) {
   )
     done.push('puzzle');
   if (crosswordStatus(crossword, puzzle).complete) done.push('crossword');
-  return {
-    done,
-    guesses,
-    crossword,
-  };
+  const sudoku = mergeSudokuProgress(a.sudoku, b.sudoku, date);
+  if (completedSudokuLevels(sudoku, date).length) done.push('sudoku');
+  const readings = normalizeReadings(
+    Object.fromEntries(
+      Object.keys(a.readings).map((kind) => [kind, [...a.readings[kind], ...b.readings[kind]]]),
+    ),
+  );
+  return { done, guesses, crossword, sudoku, readings };
 }
 export async function importBackup(file) {
   try {
@@ -349,12 +361,17 @@ export function syncPersonalData() {
     const oldLocation = JSON.stringify(session.state.location),
       oldCrossword = JSON.stringify(getTodayProgress().crossword),
       oldGuesses = JSON.stringify(getTodayProgress().guesses),
+      oldSudoku = JSON.stringify(getTodayProgress().sudoku),
       oldZone = session.state.timezone;
     session.state = incoming;
     session.today = localDateKey();
     if (oldZone !== session.state.timezone) loadDaily();
     else render();
     updateCompletionButton();
+    if (session.modalKind === 'sudoku' && oldSudoku !== JSON.stringify(getTodayProgress().sudoku)) {
+      session.sudokuHistory = {};
+      openSudoku();
+    }
     if (session.modalKind === 'moon' && oldLocation !== JSON.stringify(session.state.location))
       openMoon();
     if (

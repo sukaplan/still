@@ -8,6 +8,20 @@ export function openSettings() {
   openModal(
     html`${modalTitle('Settings', '')}
       <div class="settings-block">
+        <label class="theme-setting" for="dark-appearance"
+          ><span>Dark appearance</span
+          ><span class="appearance-control"
+            ><input
+              id="dark-appearance"
+              type="checkbox"
+              role="switch"
+              ${session.state.theme === 'dark' ? 'checked' : ''} /><span
+              class="appearance-track"
+              aria-hidden="true"
+            ></span></span
+        ></label>
+      </div>
+      <div class="settings-block">
         <div class="form-row">
           <label for="timezone">Daily reset time zone</label
           ><select id="timezone">
@@ -46,18 +60,18 @@ export function openSettings() {
             ><a href="https://www.sciencedaily.com/rss/" target="_blank" rel="noopener"
               >ScienceDaily</a
             >
-            · one recent discovery.
+            · three recent discoveries.
           </li>
           <li>
-            <strong>Astronomy</strong>A live daily
+            <strong>Astronomy</strong>Three recent
             <a href="https://science.nasa.gov/apod/" target="_blank" rel="noopener"
-              >NASA astronomy feature</a
+              >NASA astronomy explanations</a
             >. The source date is shown when the next feature has not yet been published.
           </li>
           <li>
             <strong>Technology</strong
             ><a href="https://techcrunch.com/feed/" target="_blank" rel="noopener">TechCrunch</a> ·
-            Ars Technica fallback. Publication dates shown.
+            Ars Technica fallback. Three recent stories, with publication dates.
           </li>
           <li>
             <strong>German</strong>${GERMAN.length} rotating words, with live
@@ -73,7 +87,7 @@ export function openSettings() {
           </li>
           <li>
             <strong>Puzzles</strong>${WORDS.length} word games and ${CROSSWORDS.length} mini
-            crosswords, selected by date.
+            crosswords, plus daily Sudoku in Easy, Medium, and Hard.
           </li>
         </ul>
         <p>

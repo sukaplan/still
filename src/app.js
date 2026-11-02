@@ -1,8 +1,15 @@
+import { applyAppearance } from './client/appearance.js';
+import { newsFallback } from './client/news-visual.js';
+import { selectDiscovery } from './client/discovery-cards.js';
+import { handleSudokuAction, handleSudokuKey } from './client/sudoku.js';
 /** Application startup and delegated user actions. */
 import {
   loadDaily,
+  completionTarget,
+  isDiscoveryComplete,
   loadKind,
   openDiscovery,
+  nextOpenDiscovery,
   pronounceGermanWord,
   setMomentComplete,
   toggleSave,
@@ -57,8 +64,11 @@ session.today = localDateKey();
 $('#moon-badge').addEventListener('click', openMoon);
 setInterval(() => {
   updateMoonBadge();
-  if (session.daily.astronomy?.expiresAt < Date.now() && !session.loading.astronomy)
-    loadKind('astronomy');
+  if (
+    session.discoveryDecks.astronomy?.items[0]?.expiresAt < Date.now() &&
+    !session.loading.astronomy
+  )
+    loadKind('astronomy', 0, false);
 }, 60000);
 $('#close-modal').innerHTML = renderIcon('close');
 $('#close-modal').addEventListener('click', closeModal);
@@ -78,7 +88,10 @@ document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-action]');
   if (!b || b.disabled) return;
   const a = b.dataset.action;
-  if (a === 'moon') openMoon();
+  if (a === 'next-open-discovery') nextOpenDiscovery(b.dataset.kind);
+  else if (a === 'discovery-page') selectDiscovery(b.dataset.kind, Number(b.dataset.position));
+  else if (a === 'sudoku' || a.startsWith('sudoku-')) handleSudokuAction(a, b);
+  else if (a === 'moon') openMoon();
   else if (a === 'use-location') useCurrentLocation();
   else if (a === 'puzzle') openWordGarden();
   else if (a === 'crossword') openCrossword();
@@ -96,7 +109,10 @@ document.addEventListener('click', (e) => {
   else if (a === 'save') toggleSave(b.dataset.kind);
   else if (a === 'retry') loadKind(b.dataset.kind);
   else if (a === 'complete') {
-    setMomentComplete(b.dataset.kind, !getTodayProgress().done.includes(b.dataset.kind));
+    setMomentComplete(
+      b.dataset.kind,
+      !isDiscoveryComplete(b.dataset.kind, completionTarget(b.dataset.kind)),
+    );
   } else if (a === 'speak') pronounceGermanWord();
   else if (a === 'open-board') location.hash = 'vision';
   else if (a === 'new-goal') openGoal();
@@ -225,6 +241,18 @@ document.addEventListener('input', (e) => {
   }
 });
 document.addEventListener('change', (e) => {
+  if (e.target.id === 'dark-appearance') {
+    const theme = e.target.checked ? 'dark' : 'light';
+    if (
+      updatePersonalState((state) => {
+        state.theme = theme;
+      })
+    ) {
+      applyAppearance();
+      render();
+    } else e.target.checked = session.state.theme === 'dark';
+    return;
+  }
   if (e.target.id === 'moon-city' && e.target.value) {
     const city = MOON_CITIES.find((c) => c.label === e.target.value);
     if (city) setMoonLocation(city);
@@ -259,6 +287,14 @@ document.addEventListener('change', (e) => {
   }
 });
 document.addEventListener('keydown', (e) => {
+  if (handleSudokuKey(e)) return;
+  const pager = e.target.closest('.discovery-pager');
+  if (pager && ['ArrowLeft', 'ArrowRight'].includes(e.key)) {
+    e.preventDefault();
+    const position = session.discoveryDecks[pager.dataset.kind]?.position || 0;
+    selectDiscovery(pager.dataset.kind, position + (e.key === 'ArrowRight' ? 1 : -1));
+    return;
+  }
   if (e.target.matches('[data-crossword-cell]')) {
     const index = Number(e.target.dataset.crosswordCell),
       entry = selectedCrosswordEntry(),
@@ -339,6 +375,9 @@ export function rollover() {
     session.crosswordEntryId = null;
     session.crosswordCell = null;
     session.crosswordChecked = false;
+    session.sudokuCell = null;
+    session.sudokuChecked = false;
+    session.sudokuHistory = {};
     if (session.modalKind !== 'goal') closeModal();
     loadDaily();
     toast('A new day is ready');
@@ -366,3 +405,46 @@ if (!session.storageAvailable)
       toast('Personal changes cannot currently be saved. Check your browser’s storage settings.'),
     1000,
   );
+
+// A horizontal swipe changes the story while ordinary vertical page scrolling stays natural.
+let discoverySwipe;
+document.addEventListener('pointerdown', (event) => {
+  const card = event.target.closest('[data-discovery-kind]');
+  discoverySwipe =
+    card && !event.target.closest('button, a, input')
+      ? {
+          kind: card.dataset.discoveryKind,
+          x: event.clientX,
+          y: event.clientY,
+          time: Date.now(),
+          id: event.pointerId,
+        }
+      : null;
+});
+document.addEventListener('pointerup', (event) => {
+  const swipe = discoverySwipe;
+  discoverySwipe = null;
+  if (!swipe || swipe.id !== event.pointerId || Date.now() - swipe.time > 1000) return;
+  const dx = event.clientX - swipe.x,
+    dy = event.clientY - swipe.y;
+  if (Math.abs(dx) < 50 || Math.abs(dy) > 40) return;
+  selectDiscovery(
+    swipe.kind,
+    (session.discoveryDecks[swipe.kind]?.position || 0) + (dx < 0 ? 1 : -1),
+  );
+});
+document.addEventListener('pointercancel', () => {
+  discoverySwipe = null;
+});
+
+// An unavailable remote thumbnail should never leave a broken-image icon.
+document.addEventListener(
+  'error',
+  (event) => {
+    if (!event.target.matches?.('.news-story-image')) return;
+    const visual = event.target.closest('.news-visual');
+    if (visual)
+      visual.innerHTML = newsFallback(visual.dataset.newsKind, visual.dataset.newsIdentity);
+  },
+  true,
+);

@@ -1,3 +1,7 @@
+import { applyAppearance } from './appearance.js';
+import { isExcludedDiscovery } from '../discoveries.mjs';
+import { renderNewsVisual } from './news-visual.js';
+import { renderDiscoveryPager } from './discovery-cards.js';
 /** Today and Saved page rendering, navigation, and page refreshes. */
 import { dailyPuzzle, scoreGuess } from '../word-garden.mjs';
 import { goalStatus, MOMENTS, puzzleStatus } from '../state.mjs';
@@ -6,10 +10,12 @@ import {
   completionBadge,
   completionClass,
   getDailyContent,
+  readDiscoveryButton,
   sourceLine,
 } from './content.js';
 import { session } from './context.js';
 import { renderCrosswordCard } from './crossword.js';
+import { renderSudokuCard } from './sudoku.js';
 import { updateMoonBadge } from './moon-ui.js';
 import { formatDate, getTodayProgress, safeImage } from './storage.js';
 import {
@@ -25,9 +31,13 @@ import {
 import { renderVision } from './vision-board.js';
 export function renderNewsCard(kind) {
   const content = getDailyContent(kind),
-    isLoading = session.loading[kind],
-    isComplete = getTodayProgress().done.includes(kind);
-  return html`<article class="card ${kind}-card${completionClass(kind)}">
+    isLoading = session.loading[kind];
+  return html`<article
+    class="card discovery-card ${kind}-card${completionClass(kind)}"
+    data-discovery-kind="${kind}"
+    aria-roledescription="carousel"
+    aria-label="${kind === 'science' ? 'Science news' : 'Technology'}"
+  >
     <div class="card-inner">
       <div class="card-topline">
         ${renderCardLabel(kind, kind === 'science' ? 'Science news' : 'Technology')}
@@ -35,13 +45,7 @@ export function renderNewsCard(kind) {
           ${completionBadge(kind)}${content ? bookmark(kind, content) : ''}
         </div>
       </div>
-      <img
-        class="card-image"
-        src="/assets/${kind === 'science' ? 'forest' : 'earth'}.jpg"
-        alt="${kind === 'science'
-          ? 'Sunlight falling through a green forest'
-          : 'The curve of Earth seen from space'}"
-      />
+      ${renderNewsVisual(kind, content)}
       <h2>
         ${content
           ? escapeHTML(content.title)
@@ -51,12 +55,7 @@ export function renderNewsCard(kind) {
       </h2>
       <div class="card-bottom">
         ${sourceLine(content)}${content
-          ? isComplete
-            ? renderButton('read-' + kind, 'Review ' + renderIcon('arrow'), 'text-link')
-            : renderArrowButton(
-                'read-' + kind,
-                'Read ' + (kind === 'science' ? 'today’s science' : 'today’s technology story'),
-              )
+          ? readDiscoveryButton(kind)
           : renderButton(
               'retry',
               'Try again ' + renderIcon('refresh'),
@@ -64,10 +63,12 @@ export function renderNewsCard(kind) {
               'data-kind="' + kind + '"' + (isLoading ? ' disabled' : ''),
             )}
       </div>
+      ${renderDiscoveryPager(kind)}
     </div>
   </article>`;
 }
 export function renderNavigation() {
+  applyAppearance();
   const items = [
     ['home', 'home', 'Today'],
     ['collection', 'bookmark', 'Saved'],
@@ -91,9 +92,13 @@ export function renderNavigation() {
   updateMoonBadge();
 }
 export function renderAstronomyCard() {
-  const content = getDailyContent('astronomy'),
-    isComplete = getTodayProgress().done.includes('astronomy');
-  return html`<article class="card astronomy-card${completionClass('astronomy')}">
+  const content = getDailyContent('astronomy');
+  return html`<article
+    class="card discovery-card astronomy-card${completionClass('astronomy')}"
+    data-discovery-kind="astronomy"
+    aria-roledescription="carousel"
+    aria-label="Astronomy"
+  >
     <div class="card-inner">
       <div class="card-topline">
         ${renderCardLabel('tech', 'Astronomy')}
@@ -117,10 +122,7 @@ export function renderAstronomyCard() {
       </h2>
       <div class="card-bottom">
         ${content
-          ? renderButton(
-              'read-astronomy',
-              (isComplete ? 'Review' : 'Explore') + ' ' + renderIcon('arrow'),
-            )
+          ? readDiscoveryButton('astronomy')
           : renderButton(
               'retry',
               'Try again',
@@ -142,6 +144,7 @@ export function renderAstronomyCard() {
             : ''}</span
         >
       </div>
+      ${renderDiscoveryPager('astronomy')}
     </div>
   </article>`;
 }
@@ -198,7 +201,7 @@ export function renderToday() {
           </div>
         </div>
       </article>
-      ${renderCrosswordCard()}${renderAstronomyCard()}
+      ${renderCrosswordCard()}${renderSudokuCard()}${renderAstronomyCard()}
     </div>
     <div class="news-grid">${renderNewsCard('science')}${renderNewsCard('tech')}</div>
     <div class="bottom-grid">
@@ -231,10 +234,7 @@ export function renderToday() {
                 ${escapeHTML(art ? art.artist + ' · ' + art.year : 'Loading artwork…')}
               </p>
             </div>
-            ${renderArrowButton(
-              'read-art',
-              done.includes('art') ? 'Review artwork' : 'Look closer at the artwork',
-            )}
+            ${readDiscoveryButton('art')}
           </div>
         </div>
       </article>
@@ -269,12 +269,7 @@ export function renderToday() {
             </div>
             <div class="card-bottom">
               ${german
-                ? renderButton(
-                    'read-german',
-                    (done.includes('german') ? 'Review word' : 'View word') +
-                      ' ' +
-                      renderIcon('arrow'),
-                  )
+                ? readDiscoveryButton('german')
                 : renderButton(
                     'retry',
                     'Try again ' + renderIcon('refresh'),
@@ -332,13 +327,15 @@ export function renderToday() {
     </div>`;
 }
 export function renderSaved() {
-  const entries = session.state.saved.filter(
-    (x) =>
-      session.filter === 'All' ||
-      (session.filter === 'Science'
-        ? ['science', 'concept'].includes(x.kind)
-        : x.kind === session.filter.toLowerCase()),
-  );
+  const entries = session.state.saved
+    .filter((item) => !isExcludedDiscovery(item))
+    .filter(
+      (x) =>
+        session.filter === 'All' ||
+        (session.filter === 'Science'
+          ? ['science', 'concept'].includes(x.kind)
+          : x.kind === session.filter.toLowerCase()),
+    );
   return (
     renderPageHeading(
       'Saved',
